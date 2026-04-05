@@ -151,9 +151,9 @@
   <div class="container">
     <div class="hank-layout">
       <div class="hank-text">
-        <div class="section-eyebrow hank-eyebrow">COMING SOON</div>
+        <div class="section-eyebrow hank-eyebrow">TALK TO HANK NOW &rarr;</div>
         <h2 class="section-title">Meet <span class="hank-name">Hank</span> — AI Dispatch</h2>
-        <p class="hank-lede">BB Fleets is building an AI-powered dispatch assistant that never sleeps. Load scouting, route optimization, HOS management — all voice-first, all from the cab.</p>
+        <p class="hank-lede">Hank is online today and knows BB Fleets cold — services, authority, lanes, rates, contact. Ask him anything via the chat bubble at the bottom-right. Full dispatch product (load scouting, auto-bid, HOS) launches Q3 2026.</p>
         <p class="hank-tag"><strong>Hank rides shotgun.</strong></p>
         <ul class="hank-features">
           <li><span class="dot"></span> 24/7 load board scanning across DAT, Truckstop, 123Loadboard</li>
@@ -168,7 +168,7 @@
             <div class="hank-avatar">H</div>
             <div class="hank-info">
               <div class="hank-title">HANK · DISPATCH</div>
-              <div class="hank-status"><span class="status-dot"></span> ONLINE SOON</div>
+              <div class="hank-status"><span class="status-dot"></span> ONLINE &mdash; CHAT NOW</div>
             </div>
           </div>
           <div class="hank-messages">
@@ -176,9 +176,9 @@
             <div class="hank-msg msg-out">Yeah, bid it. What's my 14 look like?</div>
             <div class="hank-msg msg-in">You're at 6.5 drive / 8 on-duty. Plenty of room. Bid submitted.</div>
           </div>
-          <div class="hank-footer">Mock interface · actual product Q3 2026</div>
+          <div class="hank-footer">Preview of the full dispatch product &middot; Q3 2026. Hank&#39;s conversational brain is live today &mdash; chat bubble bottom-right.</div>
         </div>
-        <!-- PilotCast agent embed goes here when Hank is live -->
+        <!-- PilotCast agent live via embed.js (floating chat bubble, loaded below) -->
         <div id="hank-agent-embed"></div>
       </div>
     </div>
@@ -272,5 +272,14 @@
 </footer>
 
 <script src="js/main.js"></script>
+
+<!-- ═══ HANK — PilotCast AI agent (floating chat bubble, bottom-right) ═══ -->
+<!-- Drop-in script. data-agent=newchannel is Hank's slug on PilotCast.
+     data-open=false keeps it collapsed until visitor clicks the bubble. -->
+<script src="https://pilotcast.ai/embed.js"
+        data-agent="newchannel"
+        data-position="right"
+        data-open="false"
+        data-greet="true"></script>
 </body>
 </html>
