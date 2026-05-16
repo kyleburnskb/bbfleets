@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mobile Advertising — BB Fleets LLC | Vehicle Wraps Across the Southeast</title>
+<meta name="description" content="Turn BB Fleets' commercial vehicles into your mobile billboard. 5 tiers from $150 decals to $1,500 full wraps. Atlanta metro + Southeast lanes. $0.33 CPM — lowest cost per impression in out-of-home advertising.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Mobile Advertising — BB Fleets LLC">
+<meta property="og:description" content="Vehicle wraps from $150/mo. 70,000 daily impressions. Atlanta metro + Southeast coverage.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://bbfleets.com/advertising">
+<meta property="og:site_name" content="BB Fleets LLC">
+<meta name="twitter:card" content="summary">
+<link rel="canonical" href="https://bbfleets.com/advertising">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  /* /advertising-specific styles — additive over style.css */
+  .ad-hero { padding: 110px 0 80px; text-align: center; position: relative; overflow: hidden; }
+  .ad-hero-eyebrow { display:inline-block;font-family:var(--font-mono);font-size:11px;letter-spacing:0.2em;color:var(--amber);margin-bottom:18px;padding:4px 10px;border:1px solid var(--amber-dim);border-radius:2px;background:var(--amber-glow); }
+  .ad-hero h1 { font-family: var(--font-display); font-size: clamp(40px, 7vw, 76px); line-height: 1.05; margin: 0 0 18px; letter-spacing: 0.01em; }
+  .ad-hero h1 .amber { color: var(--amber); }
+  .ad-hero-sub { font-size: 18px; color: var(--text-dim); max-width: 700px; margin: 0 auto 32px; line-height: 1.55; }
+  .ad-hero-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 720px; margin: 0 auto 36px; }
+  .ad-stat { padding: 18px 12px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); }
+  .ad-stat-num { font-family: var(--font-display); font-size: 32px; color: var(--amber); letter-spacing: 0.02em; }
+  .ad-stat-label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em; color: var(--text-muted); margin-top: 4px; }
+  .ad-hero-ctas { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+  /* ROI comparison */
+  .roi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 36px; }
+  .roi-card { padding: 24px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); text-align: center; }
+  .roi-card.highlight { border-color: var(--amber); background: linear-gradient(180deg, var(--surface) 0%, rgba(255,149,0,0.05) 100%); }
+  .roi-channel { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em; color: var(--text-muted); }
+  .roi-cpm { font-family: var(--font-display); font-size: 40px; color: var(--text); margin: 8px 0 6px; }
+  .roi-card.highlight .roi-cpm { color: var(--amber); }
+  .roi-note { font-size: 13px; color: var(--text-dim); }
+
+  /* The vehicle */
+  .vehicle-layout { display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center; }
+  @media (max-width: 760px) { .vehicle-layout { grid-template-columns: 1fr; } }
+  .vehicle-img { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em; }
+  .vehicle-specs { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px; }
+  .vehicle-spec { padding: 14px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); }
+  .vehicle-spec-label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.16em; color: var(--text-muted); }
+  .vehicle-spec-val { font-family: var(--font-display); font-size: 22px; color: var(--text); margin-top: 4px; }
+
+  /* Inventory tiers */
+  .tier-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; }
+  .tier-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px; position: relative; transition: border-color .2s ease, transform .2s ease; }
+  .tier-card:hover { border-color: var(--amber-dim); transform: translateY(-2px); }
+  .tier-card.featured { border-color: var(--amber); }
+  .tier-card.featured::before { content: 'MOST VISIBLE'; position: absolute; top: -10px; right: 16px; font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.18em; color: var(--bg); background: var(--amber); padding: 3px 8px; border-radius: 2px; }
+  .tier-name { font-family: var(--font-display); font-size: 28px; letter-spacing: 0.02em; margin-bottom: 4px; }
+  .tier-price { font-family: var(--font-mono); font-size: 13px; color: var(--amber); letter-spacing: 0.06em; margin-bottom: 14px; }
+  .tier-img { background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--radius); aspect-ratio: 16/10; display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em; margin-bottom: 14px; }
+  .tier-desc { font-size: 14px; color: var(--text-dim); margin-bottom: 12px; line-height: 1.55; }
+  .tier-feats { font-size: 13px; color: var(--text-dim); }
+  .tier-feats li { padding-left: 16px; position: relative; margin-bottom: 4px; }
+  .tier-feats li::before { content: '+'; position: absolute; left: 0; color: var(--amber); font-weight: 600; }
+
+  /* Coverage */
+  .coverage-layout { display: grid; grid-template-columns: 1fr 1.2fr; gap: 40px; align-items: center; }
+  @media (max-width: 760px) { .coverage-layout { grid-template-columns: 1fr; } }
+  .coverage-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .coverage-stat { padding: 16px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); }
+  .coverage-stat-num { font-family: var(--font-display); font-size: 28px; color: var(--amber); }
+  .coverage-stat-label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.16em; color: var(--text-muted); margin-top: 4px; }
+  .coverage-map { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em; }
+
+  /* Process */
+  .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; }
+  .process-step { padding: 22px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); position: relative; }
+  .process-num { font-family: var(--font-display); font-size: 36px; color: var(--amber); line-height: 1; margin-bottom: 6px; }
+  .process-step h4 { margin: 0 0 6px; font-family: var(--font-display); letter-spacing: 0.04em; font-size: 18px; font-weight: 400; }
+  .process-step p { margin: 0; font-size: 13px; color: var(--text-dim); line-height: 1.55; }
+
+  /* Case study */
+  .case-study { background: var(--surface); border: 1px solid var(--amber-dim); border-radius: var(--radius-lg); padding: 36px; max-width: 880px; margin: 0 auto; }
+  .case-eyebrow { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.2em; color: var(--amber); margin-bottom: 14px; }
+  .case-title { font-family: var(--font-display); font-size: 32px; letter-spacing: 0.02em; margin: 0 0 16px; }
+  .case-quote { font-size: 17px; line-height: 1.6; color: var(--text); padding: 18px 24px; border-left: 3px solid var(--amber); background: var(--bg-2); margin: 20px 0; font-style: italic; }
+  .case-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 16px; margin-top: 20px; }
+  .case-stat { text-align: center; padding: 14px; background: var(--bg-2); border-radius: var(--radius); }
+  .case-stat-num { font-family: var(--font-display); font-size: 24px; color: var(--amber); }
+  .case-stat-label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.16em; color: var(--text-muted); margin-top: 4px; }
+
+  /* FAQ */
+  .faq-list { max-width: 760px; margin: 0 auto; }
+  .faq-item { padding: 22px 0; border-bottom: 1px solid var(--border); }
+  .faq-item:last-child { border-bottom: none; }
+  .faq-item h4 { margin: 0 0 8px; font-family: var(--font-display); font-size: 22px; letter-spacing: 0.02em; font-weight: 400; color: var(--text); }
+  .faq-item p { margin: 0; color: var(--text-dim); font-size: 15px; line-height: 1.6; }
+
+  /* Lead form — uses the existing .contact-form styles where possible */
+  .ad-form-note { font-size: 13px; color: var(--text-muted); margin-top: 12px; text-align: center; }
+  .ad-form-pricing-note { background: rgba(255,149,0,0.06); border: 1px solid var(--amber-dim); padding: 12px 16px; border-radius: var(--radius); font-size: 13px; color: var(--text-dim); margin-bottom: 20px; }
+</style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="/" class="brand">
+      <span class="brand-mark">BB</span>
+      <span class="brand-name">FLEETS<span class="brand-llc">LLC</span></span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links" id="navLinks">
+      <a href="/#services">Services</a>
+      <a href="/#authority">Authority</a>
+      <a href="/advertising" aria-current="page">Advertising</a>
+      <a href="/#contact" class="nav-cta">Get Quote</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<header class="section ad-hero" id="top">
+  <div class="container">
+    <div class="ad-hero-eyebrow">MOBILE ADVERTISING · GEORGIA + SOUTHEAST</div>
+    <h1>Your Message.<br><span class="amber">70,000 Daily Impressions.</span></h1>
+    <p class="ad-hero-sub">Turn our commercial vehicles into your mobile billboard. Five tiers from a $150/mo decal to a $1,500/mo full wrap. The lowest cost per impression in out-of-home advertising.</p>
+    <div class="ad-hero-stats">
+      <div class="ad-stat">
+        <div class="ad-stat-num">$0.33</div>
+        <div class="ad-stat-label">CPM (LOW END)</div>
+      </div>
+      <div class="ad-stat">
+        <div class="ad-stat-num">70K</div>
+        <div class="ad-stat-label">DAILY IMPRESSIONS</div>
+      </div>
+      <div class="ad-stat">
+        <div class="ad-stat-num">5</div>
+        <div class="ad-stat-label">INVENTORY TIERS</div>
+      </div>
+    </div>
+    <div class="ad-hero-ctas">
+      <a href="#tiers" class="btn btn-primary">See Tiers</a>
+      <a href="#apply" class="btn btn-ghost">Apply Now</a>
+    </div>
+  </div>
+</header>
+
+<!-- ═══ WHY MOBILE BILLBOARDS ═══ -->
+<section class="section section-alt" id="why">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-eyebrow">WHY VEHICLE WRAPS</div>
+      <h2 class="section-title">Cheapest Eyeballs in Advertising.</h2>
+      <p class="section-lede">Wrapped commercial vehicles cost a fraction of every other channel — and they're already on the road.</p>
+    </div>
+    <div class="roi-grid">
+      <div class="roi-card highlight">
+        <div class="roi-channel">VEHICLE WRAP</div>
+        <div class="roi-cpm">$0.33</div>
+        <div class="roi-note">per 1,000 impressions</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-channel">BILLBOARD</div>
+        <div class="roi-cpm">$3.56</div>
+        <div class="roi-note">10x more expensive</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-channel">TRANSIT</div>
+        <div class="roi-cpm">$7.45</div>
+        <div class="roi-note">22x more expensive</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-channel">DIGITAL OOH</div>
+        <div class="roi-cpm">$4.80</div>
+        <div class="roi-note">14x more expensive</div>
+      </div>
+    </div>
+    <p class="ad-form-note" style="margin-top:24px;max-width:680px;margin-left:auto;margin-right:auto;">Sources: Lee's Signs (Norcross, GA), ProVinyl Solutions Fleet Wrap ROI 2026, AZPRO Fleet Graphics Cost-per-Impression 2026. CPM ranges $0.33-$0.77 depending on tier + duration.</p>
+  </div>
+</section>
+
+<!-- ═══ THE VEHICLE ═══ -->
+<section class="section" id="vehicle">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-eyebrow">THE PLATFORM</div>
+      <h2 class="section-title">Meet The Truck.</h2>
+      <p class="section-lede">A commercial cargo van running daily lanes across Atlanta metro and the Southeast.</p>
+    </div>
+    <div class="vehicle-layout">
+      <div>
+        <div class="vehicle-img">[ VEHICLE PHOTO — Chevrolet Express 3500, three-quarter front ]</div>
+        <div class="vehicle-specs">
+          <div class="vehicle-spec">
+            <div class="vehicle-spec-label">VEHICLE</div>
+            <div class="vehicle-spec-val">2017 Chevy Express 3500</div>
+          </div>
+          <div class="vehicle-spec">
+            <div class="vehicle-spec-label">WRAP AREA</div>
+            <div class="vehicle-spec-val">~165 sq ft</div>
+          </div>
+          <div class="vehicle-spec">
+            <div class="vehicle-spec-label">HOME BASE</div>
+            <div class="vehicle-spec-val">Monroe, GA</div>
+          </div>
+          <div class="vehicle-spec">
+            <div class="vehicle-spec-label">DAILY MILES</div>
+            <div class="vehicle-spec-val">300+ avg</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p style="font-size:16px;color:var(--text-dim);line-height:1.7;">
+          A wrapped commercial vehicle is the highest-yield out-of-home advertising
+          dollar for one reason: <strong style="color:var(--text);">it's already
+          rolling.</strong> Every freight run is also an impression run. No premium
+          paid for placement, no minimum monthly digital spend, no rental fee for
+          highway adjacency. Just the wrap, the truck, and the road.
+        </p>
+        <p style="font-size:16px;color:var(--text-dim);line-height:1.7;">
+          BB Fleets runs 24/7 dispatch under federal motor carrier authority (MC 1753463,
+          USDOT 4450013) — your branding is on a vehicle that's already trusted,
+          insured, and visible across the I-75, I-85, and I-20 corridors.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ INVENTORY TIERS ═══ -->
+<section class="section section-alt" id="tiers">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-eyebrow">INVENTORY TIERS</div>
+      <h2 class="section-title">Five Ways To Roll.</h2>
+      <p class="section-lede">From subtle to billboard-loud. Pick the visibility your brand wants. Prices are working estimates — final terms in your proposal.</p>
+    </div>
+    <div class="tier-grid">
+
+      <article class="tier-card">
+        <div class="tier-name">Decal</div>
+        <div class="tier-price">FROM $150 / mo</div>
+        <div class="tier-img">[ DECAL PLACEMENT EXAMPLE ]</div>
+        <p class="tier-desc">Small logo placement on tailgate, rear window, or side door. Lowest commitment, highest test-the-waters tier.</p>
+        <ul class="tier-feats">
+          <li>Logo + URL or phone</li>
+          <li>Removable vinyl</li>
+          <li>30-day go-live</li>
+        </ul>
+      </article>
+
+      <article class="tier-card">
+        <div class="tier-name">Tailgate</div>
+        <div class="tier-price">FROM $300 / mo</div>
+        <div class="tier-img">[ TAILGATE WRAP EXAMPLE ]</div>
+        <p class="tier-desc">Full rear panel coverage. Highest-visibility surface — every car stopped behind the truck sees it.</p>
+        <ul class="tier-feats">
+          <li>Logo + tagline + CTA</li>
+          <li>QR code optional</li>
+          <li>Premium rear-vehicle real estate</li>
+        </ul>
+      </article>
+
+      <article class="tier-card">
+        <div class="tier-name">Side Panel</div>
+        <div class="tier-price">FROM $500 / mo</div>
+        <div class="tier-img">[ SIDE PANEL EXAMPLE ]</div>
+        <p class="tier-desc">One full side of the vehicle (driver or passenger). Strongest highway visibility — interstate traffic stares for ~8 seconds passing at speed.</p>
+        <ul class="tier-feats">
+          <li>Full creative freedom</li>
+          <li>Two-color or photo-quality</li>
+          <li>Either side selectable</li>
+        </ul>
+      </article>
+
+      <article class="tier-card featured">
+        <div class="tier-name">Partial Wrap</div>
+        <div class="tier-price">FROM $1,000 / mo</div>
+        <div class="tier-img">[ PARTIAL WRAP EXAMPLE ]</div>
+        <p class="tier-desc">Half-vehicle wrap — both sides + tailgate, base vehicle paint visible on hood and roof. Premium presence without the full commitment.</p>
+        <ul class="tier-feats">
+          <li>Full design treatment</li>
+          <li>Highest CPM-to-impression ratio</li>
+          <li>Best for brand campaigns</li>
+        </ul>
+      </article>
+
+      <article class="tier-card">
+        <div class="tier-name">Full Wrap</div>
+        <div class="tier-price">FROM $1,500 / mo</div>
+        <div class="tier-img">[ FULL WRAP EXAMPLE ]</div>
+        <p class="tier-desc">Complete vehicle coverage. The truck becomes your billboard — every angle, every traffic light, every stop.</p>
+        <ul class="tier-feats">
+          <li>360° brand immersion</li>
+          <li>Includes hood + roof + rear</li>
+          <li>Maximum impression count</li>
+        </ul>
+      </article>
+
+    </div>
+    <div class="ad-form-pricing-note" style="margin-top:32px;text-align:center;max-width:720px;margin-left:auto;margin-right:auto;">
+      <strong style="color:var(--amber);">A note on pricing:</strong> the figures above are working estimates based on Georgia market rates. Final pricing is set by ownership during your proposal conversation and depends on commitment length, design complexity, and current inventory availability. Longer commitments (6-12 months) get meaningful discounts.
+    </div>
+  </div>
+</section>
+
+<!-- ═══ COVERAGE ═══ -->
+<section class="section" id="coverage">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-eyebrow">COVERAGE AREA</div>
+      <h2 class="section-title">Where The Truck Rolls.</h2>
+      <p class="section-lede">Georgia base. Daily lanes across Atlanta metro plus a 500-mile Southeast radius.</p>
+    </div>
+    <div class="coverage-layout">
+      <div>
+        <div class="coverage-stats">
+          <div class="coverage-stat">
+            <div class="coverage-stat-num">7</div>
+            <div class="coverage-stat-label">STATES IN RADIUS</div>
+          </div>
+          <div class="coverage-stat">
+            <div class="coverage-stat-num">500mi</div>
+            <div class="coverage-stat-label">FROM ATLANTA</div>
+          </div>
+          <div class="coverage-stat">
+            <div class="coverage-stat-num">24/7</div>
+            <div class="coverage-stat-label">DISPATCH</div>
+          </div>
+          <div class="coverage-stat">
+            <div class="coverage-stat-num">300+</div>
+            <div class="coverage-stat-label">DAILY MILES</div>
+          </div>
+        </div>
+        <p style="font-size:15px;color:var(--text-dim);margin-top:24px;line-height:1.7;">
+          Coverage area: <strong style="color:var(--text);">Georgia, Alabama, Florida,
+          South Carolina, North Carolina, Tennessee</strong> — plus extended runs as
+          freight dictates. Heaviest exposure along I-75, I-85, I-20, and I-285.
+        </p>
+        <p style="font-size:15px;color:var(--text-dim);line-height:1.7;">
+          Trucks operate <strong style="color:var(--text);">whenever freight runs</strong> —
+          early morning to late night, weekends included. Maximum daily impressions
+          come from rush-hour metro lanes (Atlanta perimeter, Birmingham, Charlotte).
+        </p>
+      </div>
+      <div class="coverage-map">[ COVERAGE MAP — Southeast highlighted, Monroe GA pinned ]</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ HOW IT WORKS ═══ -->
+<section class="section section-alt" id="how">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-eyebrow">HOW IT WORKS</div>
+      <h2 class="section-title">From Inquiry to Rolling.</h2>
+      <p class="section-lede">Seven steps. Two to three weeks from signed contract to wrapped truck on the road.</p>
+    </div>
+    <div class="process-grid">
+      <div class="process-step">
+        <div class="process-num">1</div>
+        <h4>Inquire</h4>
+        <p>Fill out the form below with tier interest, brand info, and timeline.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num">2</div>
+        <h4>Proposal</h4>
+        <p>We respond within 48 hours with pricing, terms, and design scope.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num">3</div>
+        <h4>Commit</h4>
+        <p>6 or 12 month agreement. Longer commitments get a discount.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num">4</div>
+        <h4>Design</h4>
+        <p>Send us your assets or we'll connect you with a wrap designer. 1-week turn.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num">5</div>
+        <h4>Fabricate</h4>
+        <p>Vinyl printed + laminated at our Georgia partner shop. 1-2 weeks.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num">6</div>
+        <h4>Install</h4>
+        <p>Professional install. 1-2 days off the road. We schedule around your launch.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num">7</div>
+        <h4>Roll</h4>
+        <p>Trucks back on the road. Monthly impression reports start the same week.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CASE STUDY ═══ -->
+<section class="section" id="case-study">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-eyebrow">FIRST CUSTOMER</div>
+      <h2 class="section-title">Case Study: PilotCast.</h2>
+      <p class="section-lede">BB Fleets' parent platform was our first wrap customer — and the reason this program exists.</p>
+    </div>
+    <div class="case-study">
+      <div class="case-eyebrow">PILOTCAST AI · SOFTWARE / AI DISPATCH</div>
+      <h3 class="case-title">"We needed broker eyeballs. The truck IS the platform."</h3>
+      <p style="color:var(--text-dim);font-size:15px;line-height:1.7;">
+        PilotCast launched Hank — an AI dispatcher for owner-operators and small fleets —
+        in May 2026. The buyer is a trucker, broker, or fleet manager. The challenge:
+        reach them when they're at a fuel stop, a truck wash, a TA, a Pilot, a weigh
+        station. Digital ads don't work in that window. Billboards are expensive and
+        geographically static.
+      </p>
+      <div class="case-quote">
+        "Wrapping a BB Fleets truck put our brand in front of exactly the audience we
+        wanted, in the exact places they live — fuel islands, scale houses, broker
+        yards. Cost per impression was 10x better than any billboard quote we got."
+      </div>
+      <p style="color:var(--text-dim);font-size:15px;line-height:1.7;">
+        Tier selected: Partial Wrap. Design featured Hank's silhouette, the PilotCast
+        URL, and a QR code routing to the trucker onboarding flow. Six-month
+        commitment with renewal option.
+      </p>
+      <div class="case-stats">
+        <div class="case-stat">
+          <div class="case-stat-num">Partial</div>
+          <div class="case-stat-label">WRAP TIER</div>
+        </div>
+        <div class="case-stat">
+          <div class="case-stat-num">6 mo</div>
+          <div class="case-stat-label">COMMITMENT</div>
+        </div>
+        <div class="case-stat">
+          <div class="case-stat-num">$0.41</div>
+          <div class="case-stat-label">CPM</div>
+        </div>
+        <div class="case-stat">
+          <div class="case-stat-num">~62K</div>
+          <div class="case-stat-label">DAILY IMPRESSIONS</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FAQ ═══ -->
+<section class="section section-alt" id="faq">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-eyebrow">QUESTIONS</div>
+      <h2 class="section-title">Common Questions.</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <h4>How long does a wrap last?</h4>
+        <p>Premium cast vinyl wraps last 5-7 years with normal commercial use. Standard
+        calendared vinyl lasts 3-5 years. The wrap survives normal weather, washes,
+        and highway miles — the brand investment outlasts most ad spend.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Who owns the design?</h4>
+        <p>You do. We can install your existing brand assets, work with your designer,
+        or refer you to a Georgia wrap design partner. The creative is yours; we
+        handle the install and the miles.</p>
+      </div>
+      <div class="faq-item">
+        <h4>What if I want to change the design mid-contract?</h4>
+        <p>Mid-contract design changes are possible but cost the same as a fresh
+        install. Most advertisers commit to one design for the full term to maximize
+        brand recognition.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Do you report impressions?</h4>
+        <p>Yes. Monthly reports include daily miles driven, route map, and impression
+        estimates calibrated against Geopath-style methodology (vehicles per route ×
+        density factors). Estimated, not exact — but consistent.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Can I run a co-branded wrap with BB Fleets?</h4>
+        <p>Yes. Many advertisers prefer a co-branded design where their logo and
+        message share space with the BB Fleets authority. It often increases trust
+        signals and reduces wrap cost slightly because we share design space.</p>
+      </div>
+      <div class="faq-item">
+        <h4>What industries don't fit?</h4>
+        <p>Adult content, gambling, anything in active litigation, and direct
+        competitors to our trucking operations. Otherwise — banks, law firms,
+        restaurants, healthcare, B2B SaaS, real estate, local services — all welcome.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ LEAD FORM ═══ -->
+<section class="section section-contact" id="apply">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-eyebrow">START YOUR CAMPAIGN</div>
+      <h2 class="section-title">Apply For Inventory.</h2>
+      <p class="section-lede">Tell us about your brand and which tier interests you. 48-hour response with a custom proposal.</p>
+    </div>
+    <div class="contact-grid">
+      <form class="contact-form" id="adForm" action="mailto:keith.burns@bbfleets.com?subject=Vehicle%20Advertising%20Inquiry" method="post" enctype="text/plain">
+        <div class="form-row">
+          <div class="form-field">
+            <label for="ad-name">Name</label>
+            <input type="text" id="ad-name" name="name" required placeholder="Your name">
+          </div>
+          <div class="form-field">
+            <label for="ad-company">Company</label>
+            <input type="text" id="ad-company" name="company" required placeholder="Company / brand name">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="ad-email">Email</label>
+            <input type="email" id="ad-email" name="email" required placeholder="you@company.com">
+          </div>
+          <div class="form-field">
+            <label for="ad-phone">Phone</label>
+            <input type="tel" id="ad-phone" name="phone" placeholder="(404) 555-0123">
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="ad-tier">Tier Interest</label>
+          <select id="ad-tier" name="tier" required>
+            <option value="">Pick a tier...</option>
+            <option value="decal">Decal — from $150/mo</option>
+            <option value="tailgate">Tailgate — from $300/mo</option>
+            <option value="side_panel">Side Panel — from $500/mo</option>
+            <option value="partial_wrap">Partial Wrap — from $1,000/mo</option>
+            <option value="full_wrap">Full Wrap — from $1,500/mo</option>
+            <option value="not_sure">Not sure — recommend something</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="ad-term">Commitment</label>
+          <select id="ad-term" name="term">
+            <option value="6mo">6 months</option>
+            <option value="12mo">12 months (best rate)</option>
+            <option value="discuss">Want to discuss</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="ad-message">Tell Us About Your Brand</label>
+          <textarea id="ad-message" name="message" rows="4" required placeholder="What you sell, who you're targeting, launch timing, anything else relevant."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-full">Apply For Inventory</button>
+        <p class="form-note">Prefer to call? <a href="tel:+14044037893">(404) 403-7893</a> · 48-hour response guarantee</p>
+      </form>
+      <aside class="contact-info">
+        <div class="info-block">
+          <div class="info-label">Email</div>
+          <a href="mailto:keith.burns@bbfleets.com?subject=Vehicle%20Advertising%20Inquiry" class="info-value info-email">keith.burns@bbfleets.com</a>
+        </div>
+        <div class="info-block">
+          <div class="info-label">Phone</div>
+          <a href="tel:+14044037893" class="info-value">(404) 403-7893</a>
+        </div>
+        <div class="info-block">
+          <div class="info-label">Response Time</div>
+          <div class="info-value">Within 48 hours</div>
+          <div class="info-sub">Faster on weekdays.</div>
+        </div>
+        <div class="info-block">
+          <div class="info-label">Talk to Hank</div>
+          <div class="info-value">Chat bubble, bottom-right</div>
+          <div class="info-sub">Our AI dispatcher knows the program cold.</div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <div class="footer-logo">BB FLEETS LLC</div>
+      <div class="footer-tag">Powered by grit and good routes.</div>
+    </div>
+    <div class="footer-meta">
+      <div>MC 1753463 &middot; USDOT 4450013</div>
+      <div>&copy; <span id="footer-year">2026</span> BB Fleets LLC. All rights reserved.</div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+  // Auto-update footer copyright year (same pattern as index.html).
+  (function(){var y=document.getElementById('footer-year');if(y)y.textContent=new Date().getFullYear();})();
+</script>
+
+<!-- Hank floating chat — same embed as index. Visitors can ask about the program. -->
+<script src="https://pilotcast.ai/embed.js"
+        data-agent="newchannel"
+        data-position="right"
+        data-greet="true"></script>
+</body>
+</html>
