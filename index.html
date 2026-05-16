@@ -47,7 +47,7 @@
     <div class="stripe"></div>
   </div>
   <div class="hero-content">
-    <div class="hero-eyebrow">GEORGIA-BASED · EST. 2026</div>
+    <div class="hero-eyebrow">GEORGIA-BASED · EST. 2021</div>
     <h1 class="hero-title">
       <span class="line">Commercial Authority.</span>
       <span class="line">Ready to Roll.</span>
@@ -266,12 +266,17 @@
     </div>
     <div class="footer-meta">
       <div>MC 1753463 &middot; USDOT 4450013</div>
-      <div>&copy; 2026 BB Fleets LLC. All rights reserved.</div>
+      <div>&copy; <span id="footer-year">2026</span> BB Fleets LLC. All rights reserved.</div>
     </div>
   </div>
 </footer>
 
 <script src="js/main.js"></script>
+<script>
+  // Auto-update footer copyright year so the site never goes stale.
+  // Single-line inline so it runs regardless of main.js cache state.
+  (function(){var y=document.getElementById('footer-year');if(y)y.textContent=new Date().getFullYear();})();
+</script>
 
 <!-- ═══ HANK — PilotCast AI agent (floating chat bubble, bottom-right) ═══ -->
 <!-- Drop-in script. data-agent=newchannel is Hank's slug on PilotCast.
