@@ -553,21 +553,24 @@ ul { margin: 0; padding: 0; list-style: none; }
   pointer-events: none;
 }
 
-.hank-layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: center;
+/* Intro block — centered headline + lede. No fake chat mockup; real
+   Hank lives in the bottom-right corner via embed.js. The topic grid
+   below + window.PilotCast.ask() routes taps directly to him. */
+.hank-intro {
+  max-width: 720px;
+  margin: 0 auto 56px;
+  text-align: center;
   position: relative;
   z-index: 1;
 }
-
-.hank-text { max-width: 520px; }
 
 .hank-eyebrow {
   background: rgba(74, 127, 184, 0.12);
   border-color: var(--steel-dim);
   color: var(--steel);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .hank-name {
@@ -592,86 +595,18 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 
 .hank-tag {
-  font-size: 18px;
+  font-size: 17px;
   color: var(--text);
-  margin: 0 0 24px;
+  margin: 18px 0 0;
+  line-height: 1.55;
 }
 .hank-tag strong { color: var(--amber); }
 
-.hank-features { display: flex; flex-direction: column; gap: 12px; }
-.hank-features li {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 14px;
-  color: var(--text-dim);
-}
-.hank-features .dot {
-  width: 6px; height: 6px;
-  background: var(--amber);
-  border-radius: 50%;
-  flex-shrink: 0;
-  box-shadow: 0 0 8px var(--amber-glow);
-}
-
-/* Hank mock card */
-.hank-card {
-  background: var(--surface);
-  border: 1px solid var(--border-2);
-  border-radius: var(--radius-lg);
-  padding: 20px;
-  box-shadow:
-    0 20px 60px rgba(0, 0, 0, 0.4),
-    0 0 0 1px var(--border);
-  position: relative;
-}
-
-.hank-card-header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding-bottom: 16px;
-  border-bottom: 1px solid var(--border);
-  margin-bottom: 16px;
-}
-
-.hank-avatar {
-  width: 42px; height: 42px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--amber), var(--amber-dim));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-display);
-  font-size: 22px;
-  color: #0a0c10;
-  box-shadow: 0 0 0 2px var(--surface), 0 0 0 3px var(--amber-dim);
-}
-
-.hank-title {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.15em;
-  color: var(--text);
-}
-
-.hank-status {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-family: var(--font-mono);
-  font-size: 10px;
-  color: var(--text-muted);
-  letter-spacing: 0.1em;
-  margin-top: 2px;
-}
-
 .status-dot {
-  width: 6px; height: 6px;
-  background: var(--amber);
+  width: 7px; height: 7px;
+  background: var(--success);
   border-radius: 50%;
-  box-shadow: 0 0 6px var(--amber);
+  box-shadow: 0 0 8px rgba(74, 222, 128, 0.7);
   animation: pulse 2s ease-in-out infinite;
 }
 
@@ -680,49 +615,135 @@ ul { margin: 0; padding: 0; list-style: none; }
   50% { opacity: 0.5; transform: scale(0.9); }
 }
 
-.hank-messages {
+/* Topic grid — six tap-to-ask cards that fire window.PilotCast.ask(). */
+.hank-topics-head {
+  text-align: center;
+  margin-bottom: 28px;
+  position: relative;
+  z-index: 1;
+}
+
+.hank-topics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.hank-topic {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 22px 20px;
+  text-align: left;
+  cursor: pointer;
+  transition: transform 0.18s ease, border-color 0.18s ease,
+              box-shadow 0.18s ease, background 0.18s ease;
+  color: var(--text);
+  font: inherit;
+  position: relative;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   gap: 10px;
-  max-height: 260px;
-  overflow: hidden;
+  min-height: 132px;
 }
 
-.hank-msg {
-  padding: 10px 14px;
-  border-radius: 12px;
-  font-size: 13px;
-  line-height: 1.5;
-  max-width: 88%;
-}
-
-.msg-in {
-  background: var(--surface-2);
-  color: var(--text);
-  border-bottom-left-radius: 4px;
-  align-self: flex-start;
-}
-
-.msg-out {
-  background: var(--amber);
-  color: #0a0c10;
-  border-bottom-right-radius: 4px;
-  align-self: flex-end;
-  font-weight: 500;
-}
-
-.hank-footer {
-  margin-top: 16px;
-  padding-top: 12px;
-  border-top: 1px solid var(--border);
-  font-family: var(--font-mono);
-  font-size: 10px;
+.hank-topic::after {
+  content: '\2192';  /* → */
+  position: absolute;
+  right: 18px;
+  top: 18px;
+  font-size: 18px;
   color: var(--text-muted);
-  text-align: center;
-  letter-spacing: 0.05em;
+  transition: transform 0.18s ease, color 0.18s ease;
 }
 
-#hank-agent-embed { display: none; }
+.hank-topic:hover,
+.hank-topic:focus-visible {
+  transform: translateY(-2px);
+  border-color: var(--amber-dim);
+  background: linear-gradient(180deg, var(--surface) 0%, rgba(255, 149, 0, 0.04) 100%);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35), 0 0 0 1px var(--amber-dim);
+  outline: none;
+}
+.hank-topic:hover::after,
+.hank-topic:focus-visible::after {
+  color: var(--amber);
+  transform: translateX(3px);
+}
+
+.hank-topic:active { transform: translateY(0); }
+
+.hank-topic-icon {
+  width: 28px;
+  height: 28px;
+  color: var(--amber);
+  flex-shrink: 0;
+}
+
+.hank-topic-q {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.35;
+  padding-right: 24px;  /* leave room for arrow */
+}
+
+.hank-topic-hint {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-top: auto;
+}
+
+/* Corner pointer — directs visitors to the live Hank bubble bottom-right.
+   Subtle, not pushy; nudge animation pulls the eye to the corner. */
+.hank-corner-pointer {
+  margin-top: 36px;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+}
+.hank-corner-pointer .corner-cta {
+  color: var(--amber);
+  font-weight: 600;
+}
+.hank-corner-pointer .corner-arrow {
+  font-size: 20px;
+  color: var(--amber);
+  display: inline-block;
+  animation: corner-nudge 2.4s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes corner-nudge {
+  0%, 100% { transform: translate(0, 0); opacity: 0.7; }
+  50%      { transform: translate(4px, 4px); opacity: 1; }
+}
+
+/* ── Hank section responsive ─────────────────────────────── */
+@media (max-width: 900px) {
+  .hank-topics { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .hank-intro { margin-bottom: 40px; }
+  .hank-topics { grid-template-columns: 1fr; gap: 12px; }
+  .hank-topic { min-height: 0; padding: 18px 16px; }
+  .hank-corner-pointer { font-size: 11px; }
+}
 
 /* ── Contact ────────────────────────────────────────────── */
 .contact-grid {
@@ -893,8 +914,6 @@ a.info-value:hover { color: var(--amber); }
 
 /* ── Responsive ─────────────────────────────────────────── */
 @media (max-width: 860px) {
-  .hank-layout { grid-template-columns: 1fr; gap: 40px; }
-  .hank-text { max-width: 100%; }
   .contact-grid { grid-template-columns: 1fr; gap: 24px; }
 }
 

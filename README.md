@@ -27,20 +27,24 @@ bbfleets/
 1. **Hero** — Authority-forward headline, MC/USDOT chips, CTAs
 2. **Services** — Vehicle Transport, Fleet Support, Dedicated Hauling, Supplies & Logistics
 3. **Authority & Compliance** — Federal filings, insurance, FMCSA SAFER verification link
-4. **Hank (AI Dispatch Teaser)** — Forward-looking section with embed hook
+4. **Hank (AI Dispatch)** — Live PilotCast agent. Section introduces Hank
+   and offers six tap-to-ask topic chips; the real chat lives in the
+   bottom-right corner via embed.js (default-open).
 5. **Contact** — Quote request form (mailto) + direct contact info
 6. **Footer** — Authority numbers, copyright
 
-## Future: Hank Agent Embed
+## Hank Agent Embed
 
-The Hank section contains a placeholder div:
+Hank is live via PilotCast's `embed.js` (loaded at the bottom of `index.html`).
+The embed exposes `window.PilotCast.ask(message)` on the parent page;
+the Hank section's topic chips call this to send pre-filled questions
+directly to the corner chat. See the inline `<script>` after the Hank
+section for the wiring.
 
-```html
-<div id="hank-agent-embed"></div>
-```
-
-When Hank goes live on PilotCast, the agent embed script will target
-this div. No other changes required to the page.
+Embed defaults:
+- `data-agent="newchannel"` — Hank's slug on PilotCast
+- `data-open="true"` — pops open on page load (better conversion)
+- `data-greet="true"` — Hank greets the visitor on open
 
 ## Local Development
 

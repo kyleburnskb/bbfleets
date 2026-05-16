@@ -181,45 +181,100 @@
   </div>
 </section>
 
-<!-- ═══ HANK — AI DISPATCH TEASER ═══ -->
+<!-- ═══ HANK — AI DISPATCH (real, not a mockup) ═══
+     Hank is live in the bottom-right corner via embed.js. This section
+     introduces him and gives visitors quick-tap questions that talk
+     directly to the corner bubble via window.PilotCast.ask(). No
+     mockup chats — the real Hank is already on the page. -->
 <section class="section section-hank" id="hank">
   <div class="container">
-    <div class="hank-layout">
-      <div class="hank-text">
-        <div class="section-eyebrow hank-eyebrow">TALK TO HANK NOW &rarr;</div>
-        <h2 class="section-title">Meet <span class="hank-name">Hank</span> — AI Dispatch</h2>
-        <p class="hank-lede">Hank is BB Fleets' AI dispatcher. He knows the fleet cold — services, authority, lanes, the vehicle advertising program, and the people behind the operation. Calm, direct, no fluff. He's the voice on the other end of the line whether you're a broker checking authority, a shipper getting a quote, or a future advertiser asking about wraps.</p>
-        <p class="hank-bio">Built on PilotCast AI. Voice-first interface. Trained on BB Fleets' real authority docs, lanes, equipment, and the advertising program. Talk to him via the chat bubble bottom-right — he speaks; you can speak back.</p>
-        <p class="hank-tag"><strong>Hank rides shotgun.</strong></p>
-        <ul class="hank-features">
-          <li><span class="dot"></span> Knows services, authority, lanes, advertising program</li>
-          <li><span class="dot"></span> Voice-first — speaks AND listens</li>
-          <li><span class="dot"></span> Routes broker / shipper / advertiser questions instantly</li>
-          <li><span class="dot"></span> Full dispatch product (load scouting, auto-bid, HOS) launches Q3 2026</li>
-        </ul>
-      </div>
-      <div class="hank-visual">
-        <div class="hank-card">
-          <div class="hank-card-header">
-            <div class="hank-avatar">H</div>
-            <div class="hank-info">
-              <div class="hank-title">HANK · DISPATCH</div>
-              <div class="hank-status"><span class="status-dot"></span> ONLINE &mdash; CHAT NOW</div>
-            </div>
-          </div>
-          <div class="hank-messages">
-            <div class="hank-msg msg-in">Got a 48-state dry van run ATL → Dallas. 892 mi, $2,450. Pickup 0600 tomorrow. Want me to bid?</div>
-            <div class="hank-msg msg-out">Yeah, bid it. What's my 14 look like?</div>
-            <div class="hank-msg msg-in">You're at 6.5 drive / 8 on-duty. Plenty of room. Bid submitted.</div>
-          </div>
-          <div class="hank-footer">Preview of the full dispatch product &middot; Q3 2026. Hank&#39;s conversational brain is live today &mdash; chat bubble bottom-right.</div>
-        </div>
-        <!-- PilotCast agent live via embed.js (floating chat bubble, loaded below) -->
-        <div id="hank-agent-embed"></div>
-      </div>
+
+    <div class="hank-intro">
+      <div class="section-eyebrow hank-eyebrow"><span class="status-dot"></span> DISPATCH · AI · ONLINE</div>
+      <h2 class="section-title">Meet <span class="hank-name">Hank</span>.</h2>
+      <p class="hank-lede">Hank is BB Fleets' AI dispatcher. He knows the fleet cold &mdash; services, authority, lanes, equipment, the vehicle advertising program, and the people behind the operation. Calm, direct, no fluff. Built on PilotCast. Voice-first &mdash; he speaks, you can speak back.</p>
+      <p class="hank-tag"><strong>Hank rides shotgun.</strong> He's already online in the corner. Tap a question below or just start a conversation.</p>
     </div>
+
+    <div class="hank-topics-head">
+      <div class="section-eyebrow">TRY ASKING HANK</div>
+    </div>
+
+    <div class="hank-topics">
+      <button class="hank-topic" type="button" data-ask="What services do you haul and what kind of equipment do you run?">
+        <svg class="hank-topic-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17h2l1-3h11l1 3h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/><path d="M3 17V7h11l3 4h3v6"/></svg>
+        <div class="hank-topic-q">What services do you haul?</div>
+        <div class="hank-topic-hint">Equipment, lanes, capacity</div>
+      </button>
+      <button class="hank-topic" type="button" data-ask="Tell me about the vehicle wrap advertising program — what tiers and pricing do you offer?">
+        <svg class="hank-topic-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11v6a1 1 0 0 0 1 1h2"/><path d="M6 18l11 3V6L6 9"/><path d="M6 9H4a1 1 0 0 0-1 1v1"/><path d="M9 13.5l1 4"/></svg>
+        <div class="hank-topic-q">How does the wrap advertising work?</div>
+        <div class="hank-topic-hint">Tiers, pricing, coverage</div>
+      </button>
+      <button class="hank-topic" type="button" data-ask="What's your MC and DOT number, and are you fully FMCSA compliant?">
+        <svg class="hank-topic-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7l8-4z"/><path d="M9 12l2 2 4-4"/></svg>
+        <div class="hank-topic-q">What's your authority status?</div>
+        <div class="hank-topic-hint">MC, DOT, insurance, filings</div>
+      </button>
+      <button class="hank-topic" type="button" data-ask="What lanes do you run? Where are you based and where do you typically deliver?">
+        <svg class="hank-topic-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h4l3-7 4 14 3-7h4"/></svg>
+        <div class="hank-topic-q">What lanes do you run?</div>
+        <div class="hank-topic-hint">Coverage area, typical routes</div>
+      </button>
+      <button class="hank-topic" type="button" data-ask="How do I request a quote? What information do you need from me?">
+        <svg class="hank-topic-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        <div class="hank-topic-q">How do I request a quote?</div>
+        <div class="hank-topic-hint">Quote process &amp; turnaround</div>
+      </button>
+      <button class="hank-topic" type="button" data-ask="Who are the people behind BB Fleets? What's the story?">
+        <svg class="hank-topic-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="4"/><path d="M21 21v-2a4 4 0 0 0-3-3.87"/><path d="M17 3.13A4 4 0 0 1 17 11"/></svg>
+        <div class="hank-topic-q">Who runs BB Fleets?</div>
+        <div class="hank-topic-hint">Team, history, why we started</div>
+      </button>
+    </div>
+
+    <div class="hank-corner-pointer" aria-hidden="true">
+      <span class="corner-text">Hank's already online &mdash;</span>
+      <span class="corner-cta">say hi in the corner</span>
+      <span class="corner-arrow">&#8600;</span>
+    </div>
+
   </div>
 </section>
+
+<script>
+  // Wire topic buttons → window.PilotCast.ask() (embed.js parent API).
+  // If embed.js hasn't loaded yet (script defers to end of body), retry
+  // briefly. If PilotCast still isn't there after a few tries (e.g. ad
+  // blocker or CSP block), fall back to scrolling to the corner.
+  (function(){
+    function wireTopics(){
+      var btns = document.querySelectorAll('.hank-topic[data-ask]');
+      btns.forEach(function(btn){
+        btn.addEventListener('click', function(){
+          var q = btn.getAttribute('data-ask') || '';
+          var attempts = 0;
+          (function trySend(){
+            if (window.PilotCast && typeof window.PilotCast.ask === 'function'){
+              window.PilotCast.ask(q);
+              return;
+            }
+            if (++attempts < 20) return setTimeout(trySend, 150);
+            // Fallback: open via global function if available
+            if (window.PilotCast && typeof window.PilotCast.open === 'function'){
+              window.PilotCast.open();
+            }
+          })();
+        });
+      });
+    }
+    if (document.readyState === 'loading'){
+      document.addEventListener('DOMContentLoaded', wireTopics);
+    } else {
+      wireTopics();
+    }
+  })();
+</script>
 
 <!-- ═══ CONTACT ═══ -->
 <section class="section section-contact" id="contact">
@@ -316,11 +371,14 @@
 
 <!-- ═══ HANK — PilotCast AI agent (floating chat bubble, bottom-right) ═══ -->
 <!-- Drop-in script. data-agent=newchannel is Hank's slug on PilotCast.
-     Defaults to OPEN on load (clearer CTA, better conversion) — visitor
-     can dismiss by clicking the collapse control in the chat panel. -->
+     data-open="true" makes Hank pop open on page load (clearer CTA + better
+     conversion than a tucked-away bubble). Visitor can dismiss to the
+     bubble via the X in the panel. The Hank section above wires its
+     topic chips to window.PilotCast.ask() exposed by embed.js. -->
 <script src="https://pilotcast.ai/embed.js"
         data-agent="newchannel"
         data-position="right"
-        data-greet="true"></script>
+        data-greet="true"
+        data-open="true"></script>
 </body>
 </html>
